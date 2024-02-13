@@ -1,15 +1,12 @@
-// src/SideMenu.js
-import * as React from 'react';
-import Drawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-
+import React from 'react';
+import { Drawer, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import HomeIcon from '@mui/icons-material/Home';
+import InfoIcon from '@mui/icons-material/Info';
+import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
 
-export default function SideMenu() {
-let data=['Home', 'About'];
+function SideMenu() {
   return (
     <Drawer
       sx={{
@@ -18,19 +15,27 @@ let data=['Home', 'About'];
         '& .MuiDrawer-paper': {
           width: drawerWidth,
           boxSizing: 'border-box',
-          backgroundColor: '#cbcbeb',
+          backgroundColor:'#9898b1',
+
         },
       }}
       variant="permanent"
       anchor="left"
     >
       <List>
-        {data.map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        {/* Existing items */}
+        <ListItem button component={Link} to="/">
+          <ListItemIcon><HomeIcon /></ListItemIcon>
+          <ListItemText primary="Home" />
+        </ListItem>
+        <ListItem button component={Link} to="/about">
+          <ListItemIcon><InfoIcon /></ListItemIcon>
+          <ListItemText primary="About" />
+        </ListItem>
+        
       </List>
     </Drawer>
   );
 }
+
+export default SideMenu;
