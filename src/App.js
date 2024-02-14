@@ -7,14 +7,12 @@ import About from './components/About';
 function App() {
   return (
     <Router>
-      <div style={{ display: 'flex' }}>
-        <SideMenu />
-        <main style={{ flexGrow: 1, padding: '20px' }}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-          </Routes>
-        </main>
+      <SideMenu />
+      <div className="content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
       </div>
     </Router>
   );
