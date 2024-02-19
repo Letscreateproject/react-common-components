@@ -3,19 +3,20 @@
     width: 200px;
     position: fixed;
     background-color: #c5baba;
-    padding: 15px;
     font-size: 20px;
   }
   
   .menu-item {
     display: block;
-    margin: 10px 0;
-    color: black;
+    margin: 16px 0;
+    color: #835050;
     text-decoration: none;
+    margin-left: 18px;
+    font-size: 19px;
   }
   
   .menu-item:hover {
-    text-decoration: underline;
+    color: white;
   }
   
   .content {

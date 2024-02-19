@@ -1,0 +1,27 @@
+.tab-wrapper {
+    font-family: Arial, sans-serif;
+  }
+  
+  .tab-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    background-color: #f1f1f1;
+    margin: 0;
+  }
+  
+  .tab-list li {
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+  }
+  
+  .tab-list li.active {
+    background-color: #ddd;
+  }
+  
+  .tab-content {
+    padding: 20px;
+    border-top: none;
+  }
+  

@@ -1,0 +1,16 @@
+.richTextEditor {
+    /* Your custom styles for the editor container */
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  .button{
+        margin: 20px;
+        font-size: 18px;
+        border-radius: 6px;
+        color: #7a5656;
+        width: 8%;
+        height: 35px;
+    
+  }
+  

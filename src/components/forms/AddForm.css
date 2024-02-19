@@ -1,0 +1,53 @@
+/* AddForm.css */
+.addForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 500px; /* Adjust width as needed */
+    margin: auto;
+  }
+  
+  .addForm label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .addForm label > span {
+    flex-basis: 30%; /* Adjust label width as needed */
+    text-align: right;
+    margin-right: 10px; /* Spacing between label and input */
+  }
+  
+  .addForm input[type="text"],
+  .addForm textarea,
+  .addForm select,
+  .addForm input[type="checkbox"] + span,
+  .addForm input[type="radio"] + span {
+    flex-basis: 70%; /* Adjust input field width as needed */
+    padding: 8px;
+  }
+  
+  .addForm input[type="checkbox"],
+  .addForm input[type="radio"] {
+    margin: 0 10px 0 0;
+  }
+  
+  .addForm button {
+    padding: 10px;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    align-self: flex-end; /* Aligns the submit button to the right */
+  }
+.heading{
+    font-size: xx-large;
+    font-style: italic;
+    text-align: center;
+    color: rgb(99, 150, 133);
+}
+  
+  

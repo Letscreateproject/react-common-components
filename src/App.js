@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SideMenu from './components/SideMenu';
 import Home from './components/Home';
 import About from './components/About';
+import AddForm from './components/forms/AddForm';
+import Tabs from './components/tabs/Tabs';
+import RichText from './components/richText/RichText';
 
 function App() {
   return (
@@ -12,6 +15,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/add-form" element={<AddForm />} />
+          <Route path="/tabs" element={<Tabs />} />
+          <Route path="/rich-text" element={<RichText />} />
         </Routes>
       </div>
     </Router>
