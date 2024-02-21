@@ -7,7 +7,10 @@
         {id:2,url:"/about",title:'ABOUT'},
         {id:3,url:"/add-form",title:'ADD FORM'},
         {id:4,url:"/tabs",title:'TABS'},
-        {id:5,url:"/rich-text",title:'RICHTEXT'}
+        {id:5,url:"/rich-text",title:'RICHTEXT'},
+        {id:6,url:"/details",title:'DETAILS'}
+
+
     ]
 
         return (

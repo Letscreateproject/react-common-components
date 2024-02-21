@@ -6,6 +6,7 @@ import About from './components/About';
 import AddForm from './components/forms/AddForm';
 import Tabs from './components/tabs/Tabs';
 import RichText from './components/richText/RichText';
+import Details from './components/details/Details';
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
           <Route path="/add-form" element={<AddForm />} />
           <Route path="/tabs" element={<Tabs />} />
           <Route path="/rich-text" element={<RichText />} />
+          <Route path="/details" element={<Details />} />
+
         </Routes>
       </div>
     </Router>

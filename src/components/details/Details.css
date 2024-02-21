@@ -1,0 +1,70 @@
+.details-container {
+    padding: 20px;
+  }
+  
+  .card {
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fbfbfb;
+
+  }
+  
+  .input-group {
+        padding-right: 60px;
+        display: inline-flex;
+        margin-bottom: 10px;
+        align-items: flex-start;
+        flex-direction: column;
+        border-spacing: 10px;
+        flex-wrap: nowrap;
+    }
+  
+  
+  .input-group label {
+    flex-basis: 20%;
+    margin-right: 10px;
+    color:rgb(26, 26, 77);
+    font-style: normal;
+    font-size: 14px;
+  }
+  
+  .input-group input {
+    width: 98%;
+    border-radius: 6px;
+    border: none;
+    height: 30px;
+    background-color: rgb(237 233 233);
+    color: gray;
+    padding: 5px;
+  }
+  .input-group select {
+    width: 100%;
+    border-radius: 6px;
+    border: none;
+    height: 40px;
+    background-color: rgb(237 233 233);
+    color: gray;
+    padding: 5px;
+  }
+  
+  .proceed-button {
+    display: flex;
+    justify-content:center;
+  }
+  .head {
+    color:#e1882c;
+    font-size: 15px;
+    font-style: oblique;
+}
+.button {
+    width: 120px;
+    height: 34px;
+    color: white;
+    background-color: #eba030;
+    border-radius: 18px;
+    font-size: small;
+    border: none;
+    cursor: pointer;
+}
+  
