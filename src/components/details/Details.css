@@ -54,7 +54,7 @@
   }
   .head {
     color:#e1882c;
-    font-size: 15px;
+    font-size: 13px;
     font-style: oblique;
 }
 .button {
@@ -67,4 +67,31 @@
     border: none;
     cursor: pointer;
 }
+.insurance-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  
+  .insurance-table th, .insurance-table td {
+    border: 1px solid #080707;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .insurance-table th,td {
+    background-color: #fdfdfd;
+  }
+  
+  .insurance-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .insurance-table tr:hover {
+    background-color: #eaeaea;
+  }
+  .radio {
+    margin-left: 8px;
+    vertical-align: middle;
+  }
   
