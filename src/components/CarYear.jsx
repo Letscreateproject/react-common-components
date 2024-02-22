@@ -99,6 +99,7 @@ function SearchBar() {
 
 export default function CarYear(){
     let {id} = useParams();
+    const [oldRecords,setOldRecords]=useState([]);
     const [records,setRecords]=useState([]);
     const location = useLocation();
     let  apiPayload  = location.state;
@@ -119,6 +120,7 @@ export default function CarYear(){
           }
     
           const data = await response.json();
+          setOldRecords(data)
           setRecords(data.payload);
         } catch (error) {
           console.error('Error fetching data:', error);
@@ -146,7 +148,13 @@ export default function CarYear(){
   
                     {/* <Card elevation={3} sx={{ p: 3, height: "100%" }} >
                       <CardContent> */}
-                        <Link to="/details"  rel="noreferrer">
+                        <Link to="/details"
+                         state={{
+                          "pageName":"regyear",
+                          "pageRequest":oldRecords.oldPayload,
+                          "selectedValue":data.value
+                        }}
+                        rel="noreferrer">
                           {/* <img src={data.image} alt="" className={Styles.image_resolution} /> */}
                           <span><ArrowForwardIcon></ArrowForwardIcon></span> <span>{data.value}</span>
   

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./Details.css";
 import image from "../../assets/new.webp";
-import { useNavigate } from "react-router-dom";
+import { useNavigate , useLocation } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 import Popup from "../ToVerify.jsx";
@@ -41,9 +41,11 @@ const Details = () => {
     ],
   };
   const navigate = useNavigate();
-
+debugger
   const [formData, setFormData] = useState(fields);
   const [openUp, setOpen] = useState(false);
+  const location = useLocation();
+    let  apiPayload  = location.state;
 
   const handleClick = (event) => {
     if (event === "clicked") {
