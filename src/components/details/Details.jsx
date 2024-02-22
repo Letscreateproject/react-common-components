@@ -8,44 +8,42 @@ import Popup from "../ToVerify.jsx";
 
 
 const Details = () => {
-  const fields = {
-    customerType: "Induvitual",
-    vehicleGccSpesification: "yes",
-    typeOfVehicle: "Private",
-    coverageType: "Comprehensive",
-    purposeOfTransaction: "Brand New",
-    vin: "19XFC267XKE450363",
-    modelYear: "2019",
-    makeMaufacturer: "Honda",
-    vehicleModel: "City",
-    category: "Sedan",
-    bodyType: "Metal",
-    engine: "2.0L",
-    transmission: "Manual",
-    cylinder: 4,
-    noOfseats: 5,
-    manufacturedCountry: "japan",
-    cityOfRegistration: "Dubai",
-    noClaimDiscount: 0,
-    vehilcleRepair: "Approved workshop-Garage",
-    sumInsured: 100000,
-    nationality: "Indian",
-    ownersDateOfBirth: "05/09/1998",
-    drivingLicenceIssueDate: "20/05/2012",
-    driverAge: 25,
+  const fields = [{
+    customerType: " ",
+    vehicleGccSpesification: " ",
+    typeOfVehicle: " ",
+    coverageType: " ",
+    purposeOfTransaction: " ",
+    vin: " ",
+    modelYear: " ",
+    makeMaufacturer: " ",
+    vehicleModel: " ",
+    category: " ",
+    bodyType: " ",
+    engine: " ",
+    transmission: " ",
+    cylinder: '',
+    noOfseats: ' ',
+    manufacturedCountry: " ",
+    cityOfRegistration: " ",
+    noClaimDiscount:'',
+    vehilcleRepair: '',
+    sumInsured:'',
+    nationality:'',
+    ownersDateOfBirth: '',
+    drivingLicenceIssueDate:'',
+    driverAge: '',
     insuranceDetails: [
-      { type: "Premium AED", compr: "2,079", thirdParty: "1,329" },
-      { type: "Gross Premium AED", compr: "2,079", thirdParty: "1,329" },
-      { type: "VAS 5%", compr: "103.95", thirdParty: "66.45" },
-      { type: "Final Premium AED", compr: "2,182.95", thirdParty: "1,395.45" },
+
     ],
-  };
+  }];
   const navigate = useNavigate();
-debugger
-  const [formData, setFormData] = useState(fields);
+  const [formData, setformData] = useState(fields);
   const [openUp, setOpen] = useState(false);
   const location = useLocation();
     let  apiPayload  = location.state;
+
+    console.log(apiPayload);
 
   const handleClick = (event) => {
     if (event === "clicked") {
@@ -60,20 +58,45 @@ debugger
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setFormData((prevState) => ({
+    setformData((prevState) => ({
       ...prevState,
       [name]: value,
     }));
   };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://192.168.100.150:8083/rak/dynamic', {
+          method: 'POST', // Assuming you are sending data in the request body
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(apiPayload)
+        });
+  
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+  
+        const data = await response.json();
+        setformData(data.payload);
+        console.log(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+  
+    fetchData();
+  }, []);
   const handleProceed = async () => {
     const url = "http://192.168.100.150:8083/rak/dynamic";
     const data = {
       pageName: "details",
       pageRequest: {
-        brand: formData.makeMaufacturer,
-        model: formData.vehicleModel,
-        variant: formData.category,
-        regyear: formData.modelYear,
+        brand: formData[0].makeMaufacturer,
+        model: formData[0].vehicleModel,
+        variant: formData[0].category,
+        regyear: formData[0].modelYear,
       },
     };
     try {
@@ -84,7 +107,6 @@ debugger
       console.error("Error making the API call:", error);
     }
   };
-
   return (
     <>
       <img style={{ width: "240px" }} src={image} alt=" Empty page" />
@@ -97,7 +119,7 @@ debugger
             <input
               type="text"
               name="customerType"
-              value={formData.customerType}
+              value={formData[0].customerType}
               onChange={handleInputChange}
             />
           </div>
@@ -106,7 +128,7 @@ debugger
             <input
               type="text"
               name="vehicleGccSpesification"
-              value={formData.vehicleGccSpesification}
+              value={formData[0].vehicleGccSpesification}
               onChange={handleInputChange}
             />
           </div>
@@ -115,7 +137,7 @@ debugger
             <input
               type="text"
               name="typeOfVehicle"
-              value={formData.typeOfVehicle}
+              value={formData[0].typeOfVehicle}
               onChange={handleInputChange}
             />
           </div>
@@ -124,7 +146,7 @@ debugger
             <input
               type="text"
               name="coverageType"
-              value={formData.coverageType}
+              value={formData[0].coverageType}
               onChange={handleInputChange}
             />
           </div>
@@ -133,7 +155,7 @@ debugger
             <input
               type="text"
               name="purposeOfTransaction"
-              value={formData.purposeOfTransaction}
+              value={formData[0].purposeOfTransaction}
               onChange={handleInputChange}
             />
           </div>
@@ -145,7 +167,7 @@ debugger
             <input
               type="text"
               name="vin"
-              value={formData.vin}
+              value={formData[0].vin}
               onChange={handleInputChange}
             />
           </div>
@@ -154,7 +176,7 @@ debugger
             <input
               type="text"
               name="modelYear"
-              value={formData.modelYear}
+              value={formData[0].modelYear}
               onChange={handleInputChange}
             />
           </div>
@@ -163,7 +185,7 @@ debugger
             <input
               type="text"
               name="makeMaufacturer"
-              value={formData.makeMaufacturer}
+              value={formData[0].makeMaufacturer}
               onChange={handleInputChange}
             />
           </div>
@@ -172,7 +194,7 @@ debugger
             <input
               type="text"
               name="vehicleModel"
-              value={formData.vehicleModel}
+              value={formData[0].vehicleModel}
               onChange={handleInputChange}
             />
           </div>
@@ -181,7 +203,7 @@ debugger
             <input
               type="text"
               name="category"
-              value={formData.category}
+              value={formData[0].category}
               onChange={handleInputChange}
             />
           </div>
@@ -190,7 +212,7 @@ debugger
             <input
               type="text"
               name="bodyType"
-              value={formData.bodyType}
+              value={formData[0].bodyType}
               onChange={handleInputChange}
             />
           </div>
@@ -199,7 +221,7 @@ debugger
             <input
               type="text"
               name="engine"
-              value={formData.engine}
+              value={formData[0].engine}
               onChange={handleInputChange}
             />
           </div>
@@ -208,7 +230,7 @@ debugger
             <input
               type="text"
               name="transmission"
-              value={formData.transmission}
+              value={formData[0].transmission}
               onChange={handleInputChange}
             />
           </div>
@@ -217,7 +239,7 @@ debugger
             <input
               type="text"
               name="cylinder"
-              value={formData.cylinder}
+              value={formData[0].cylinder}
               onChange={handleInputChange}
             />
           </div>
@@ -226,7 +248,7 @@ debugger
             <input
               type="text"
               name="noOfseats"
-              value={formData.noOfseats}
+              value={formData[0].noOfseats}
               onChange={handleInputChange}
             />
           </div>
@@ -235,7 +257,7 @@ debugger
             <input
               type="text"
               name="manufacturedCountry"
-              value={formData.manufacturedCountry}
+              value={formData[0].manufacturedCountry}
               onChange={handleInputChange}
             />
           </div>
@@ -244,7 +266,7 @@ debugger
             <input
               type="text"
               name="cityOfRegistration"
-              value={formData.cityOfRegistration}
+              value={formData[0].cityOfRegistration}
               onChange={handleInputChange}
             />
           </div>
@@ -253,7 +275,7 @@ debugger
             <input
               type="text"
               name="noClaimDiscount"
-              value={formData.noClaimDiscount}
+              value={formData[0].noClaimDiscount}
               onChange={handleInputChange}
             />
           </div>
@@ -262,7 +284,7 @@ debugger
             <input
               type="text"
               name="vehilcleRepair"
-              value={formData.vehilcleRepair}
+              value={formData[0].vehilcleRepair}
               onChange={handleInputChange}
             />
           </div>
@@ -271,7 +293,7 @@ debugger
             <input
               type="text"
               name="sumInsured"
-              value={formData.sumInsured}
+              value={formData[0].sumInsured}
               onChange={handleInputChange}
             />
           </div>
@@ -283,7 +305,7 @@ debugger
             <input
               type="text"
               name="nationality"
-              value={formData.nationality}
+              value={formData[0].nationality}
               onChange={handleInputChange}
             />
           </div>
@@ -292,7 +314,7 @@ debugger
             <input
               type="text"
               name="ownersDateOfBirth"
-              value={formData.ownersDateOfBirth}
+              value={formData[0].ownersDateOfBirth}
               onChange={handleInputChange}
             />
           </div>
@@ -301,7 +323,7 @@ debugger
             <input
               type="text"
               name="drivingLicenceIssueDate"
-              value={formData.drivingLicenceIssueDate}
+              value={formData[0].drivingLicenceIssueDate}
               onChange={handleInputChange}
             />
           </div>
@@ -310,7 +332,7 @@ debugger
             <input
               type="text"
               name="driverAge"
-              value={formData.driverAge}
+              value={formData[0].driverAge}
               onChange={handleInputChange}
             />
           </div>
@@ -332,7 +354,7 @@ debugger
               </tr>
             </thead>
             <tbody>
-              {formData.insuranceDetails.map((detail, index) => (
+              {formData[0].insuranceDetails.map((detail, index) => (
                 <tr key={index}>
                   <td>{detail.type}</td>
                   <td>{detail.compr}</td>
@@ -354,7 +376,7 @@ debugger
           >
             Proceed
           </button>
-          {openUp && <Popup openUp='true' handleClose={handleClose} />}
+          {openUp && <Popup openUp='true' handleClose={handleClose} handleProceedClick={handleProceed} />}
         </div>
       </div>
     </>

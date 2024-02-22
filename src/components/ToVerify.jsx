@@ -12,7 +12,7 @@ const userDetails = {
   phoneNo: "66998841",
 };
 
-export default function ToVerify({ openUp, handleClose }) {
+export default function ToVerify({ openUp, handleClose,handleProceedClick }) {
   const [OTP, setOTP] = useState(false);
   const [verifiedOTP, setVerifiedOTP] = useState(false);
   const [formData, setFormData] = useState({
@@ -122,7 +122,7 @@ export default function ToVerify({ openUp, handleClose }) {
           </DialogContent>
           <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-            <Button type="submit">View Proposal</Button>
+            <Button type="submit" onClick={handleProceedClick}>View Proposal</Button>
           </DialogActions>
         </Dialog>
       )}

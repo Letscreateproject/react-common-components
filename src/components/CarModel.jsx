@@ -144,7 +144,6 @@ function SearchBar() {
 
 export default function Home() {
     // fetch data from json
-    debugger
     let {id} = useParams();
   const [records,setRecords]=useState([]);
   const location = useLocation();

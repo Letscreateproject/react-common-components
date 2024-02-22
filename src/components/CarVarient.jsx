@@ -98,7 +98,6 @@ function SearchBar() {
 
 
 export default function Home() {
-  debugger
   let {id} = useParams();
   const [records,setRecords]=useState([]);
   const [record,setRecord]=useState([]);
@@ -155,7 +154,8 @@ export default function Home() {
                       <Link to="/caryear"
                        state={{
                         "pageName":"variant",
-                        "pageRequest":record.oldPayload
+                        "pageRequest":record.oldPayload,
+                        "selectedValue":data.value
                       }}
                       rel="noreferrer">
                         {/* <img src={data.image} alt="" className={Styles.image_resolution} /> */}
