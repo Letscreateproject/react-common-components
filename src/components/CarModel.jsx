@@ -144,7 +144,7 @@ function SearchBar() {
 
 export default function Home() {
     // fetch data from json
-    debugger
+    
     let {id} = useParams();
   const [records,setRecords]=useState([]);
   const location = useLocation();
@@ -200,7 +200,7 @@ useEffect(() => {
           <Grid container  >
             {/* display list of data using map, it must have return*/}
             {records?.payload?.map(function (data) {
-              {records.oldPayload.model = data.value}
+              // {records.oldPayload.model = data.value}
               return (
 
                 <Grid md={3} columnSpacing={{ xs: 6, sm: 3, md: 2 }} className={Styles.gridSpace}>
@@ -208,11 +208,12 @@ useEffect(() => {
 
                   <Card elevation={3} sx={{ p: 3, height: "100%" }} >
                     <CardContent>
+                    {/* {records.oldPayload.model = data.value} */}
                       <Link to="/carvarient" 
                       state={{
                         "pageName":"model",
                         "pageRequest":records.oldPayload,
-                        "selectedValue":data.value
+                        "selectedValue":data.value,
                       }}
                        rel="noreferrer">
                         <span><ArrowForwardIcon></ArrowForwardIcon></span> <span>{data.value}</span>

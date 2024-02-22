@@ -13,7 +13,7 @@ const userDetails = {
 };
 
 export default function ToVerify({ openUp }) {
-  debugger;
+  
   const [open, setOpen] = useState(false);
   const [OTP, setOTP] = useState(false);
   const [verifiedOTP, setVerifiedOTP] = useState(false);
@@ -30,7 +30,7 @@ export default function ToVerify({ openUp }) {
   };
 
   const handleClose = () => {
-    debugger
+    
     setOpen(false);
     openUp = false;
   };
@@ -58,7 +58,7 @@ export default function ToVerify({ openUp }) {
               event.preventDefault();
               const formData = new FormData(event.currentTarget);
               const formJson = Object.fromEntries(formData.entries());
-              debugger;
+              
               const email = formJson.email;
               console.log(email);
               handleClose();
