@@ -1,0 +1,83 @@
+
+.cardSub
+{
+    color: green;
+    margin-top: 1px;
+    font-size: 14px;
+}
+.cardHead
+{
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+.cardHeadBottom
+{
+    border-bottom: 1px dashed #c6c6c6;
+}
+.subHead
+{
+    padding-left: 10px;
+    font-size: 13px;
+}
+.gridSpace
+{
+    margin-right: 28px;
+    margin-bottom: 28px;
+}
+.locationH
+{
+    display: flex;
+    justify-content: flex-start;
+    align-items: end;
+    font-size: 13px !important;
+    margin-top:10px !important;
+}
+.locationT
+{
+    display: flex;
+    justify-content: flex-start;
+    align-items: end;
+    font-size: 13px !important;
+    margin-top:10px !important;
+    border-bottom: 1px dashed #c6c6c6;
+
+}
+.locationDiv
+{
+    display: flex;
+    vertical-align: middle;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 0px !important;
+}
+.iconSpace
+{
+    display: flex;
+    align-items: center;
+}
+.buttonfill
+{
+    width: -webkit-fill-available;
+}
+.profile_Header
+{
+    display: flex;
+    justify-content: flex-end;
+}
+.image_resolution
+{
+    width: -webkit-fill-available;
+}
+.bodycontainer{
+    margin-top:20px;
+}
+.buttonHome{
+    display: block;
+    margin: 0 auto;
+}
+.serachbar
+{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
