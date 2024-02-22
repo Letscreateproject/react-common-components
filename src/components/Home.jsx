@@ -114,8 +114,10 @@ export default function Home() {
         }
   
         const data = await response.json();
+        const filterBrands = data.payload.map(item => item.value);
+        const filteredData = gridData.filter(item => filterBrands.includes(item.brand));
         setRecord(data);
-        setRecords(data.payload);
+        setRecords(filteredData);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -152,7 +154,7 @@ export default function Home() {
                       }} 
                       rel="noreferrer">
                         <img
-                          src={Honda}
+                          src={data.image}
                           alt=""
                           className={Styles.image_resolution}
                         />
