@@ -12,7 +12,9 @@ const userDetails = {
   phoneNo: "66998841",
 };
 
-export default function ToVerify({ openUp, handleClose,handleProceedClick }) {
+export default function ToVerify({ openUp }) {
+  
+  const [open, setOpen] = useState(false);
   const [OTP, setOTP] = useState(false);
   const [verifiedOTP, setVerifiedOTP] = useState(false);
   const [formData, setFormData] = useState({
@@ -47,6 +49,7 @@ export default function ToVerify({ openUp, handleClose,handleProceedClick }) {
               event.preventDefault();
               const formData = new FormData(event.currentTarget);
               const formJson = Object.fromEntries(formData.entries());
+              
               const email = formJson.email;
               console.log(email);
               handleClose();

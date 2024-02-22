@@ -98,16 +98,17 @@ function SearchBar() {
 
 
 export default function Home() {
+  
   let {id} = useParams();
   const [records,setRecords]=useState([]);
   const [record,setRecord]=useState([]);
   const location = useLocation();
   let  apiPayload  = location.state;
   apiPayload.pageRequest.model = apiPayload.selectedValue;
-  delete apiPayload.selectedValue;
 
   useEffect(() => {
     const fetchData = async () => {
+      delete apiPayload.selectedValue;
       try {
         const response = await fetch('http://192.168.100.150:8083/rak/dynamic', {
           method: 'POST', // Assuming you are sending data in the request body
@@ -155,7 +156,7 @@ export default function Home() {
                        state={{
                         "pageName":"variant",
                         "pageRequest":record.oldPayload,
-                        "selectedValue":data.value
+                        "selectedValue":data.value,
                       }}
                       rel="noreferrer">
                         {/* <img src={data.image} alt="" className={Styles.image_resolution} /> */}

@@ -38,15 +38,15 @@ const Details = () => {
     ],
   }];
   const navigate = useNavigate();
-  const [formData, setformData] = useState(fields);
+
+  const [formData, setFormData] = useState(fields);
   const [openUp, setOpen] = useState(false);
   const location = useLocation();
     let  apiPayload  = location.state;
-
-    console.log(apiPayload);
-
+    apiPayload.pageRequest.regyear = apiPayload.selectedValue;
   const handleClick = (event) => {
     if (event === "clicked") {
+        // navigate('/Success')
       setOpen(true);
     }
   };

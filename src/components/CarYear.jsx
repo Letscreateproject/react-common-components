@@ -103,9 +103,12 @@ export default function CarYear(){
     const [records,setRecords]=useState([]);
     const location = useLocation();
     let  apiPayload  = location.state;
+    apiPayload.pageRequest.variant = apiPayload.selectedValue;
   
     useEffect(() => {
       const fetchData = async () => {
+        delete apiPayload.selectedValue;
+
         try {
           const response = await fetch('http://192.168.100.150:8083/rak/dynamic', {
             method: 'POST', // Assuming you are sending data in the request body
