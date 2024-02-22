@@ -12,7 +12,7 @@ const userDetails = {
   phoneNo: "66998841",
 };
 
-export default function ToVerify({ openUp }) {
+export default function ToVerify({ openUp ,handleProceedClick}) {
   
   const [open, setOpen] = useState(false);
   const [OTP, setOTP] = useState(false);
@@ -23,7 +23,17 @@ export default function ToVerify({ openUp }) {
     phoneNo: "66998841",
   });
 
- 
+  // setOpen(true);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    
+    setOpen(false);
+    openUp = false;
+  };
   const sendOTP = () => {
     alert("OTP sent successfully");
     setOTP(true);

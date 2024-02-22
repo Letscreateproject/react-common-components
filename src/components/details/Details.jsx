@@ -58,13 +58,14 @@ const Details = () => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setformData((prevState) => ({
+    setFormData((prevState) => ({
       ...prevState,
       [name]: value,
     }));
   };
   useEffect(() => {
     const fetchData = async () => {
+        delete apiPayload.selectedValue;
       try {
         const response = await fetch('http://192.168.100.150:8083/rak/dynamic', {
           method: 'POST', // Assuming you are sending data in the request body
@@ -79,7 +80,7 @@ const Details = () => {
         }
   
         const data = await response.json();
-        setformData(data.payload);
+        setFormData(data.payload);
         console.log(data);
       } catch (error) {
         console.error('Error fetching data:', error);
