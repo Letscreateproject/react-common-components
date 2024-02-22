@@ -12,9 +12,7 @@ const userDetails = {
   phoneNo: "66998841",
 };
 
-export default function ToVerify({ openUp }) {
-  debugger;
-  const [open, setOpen] = useState(false);
+export default function ToVerify({ openUp, handleClose }) {
   const [OTP, setOTP] = useState(false);
   const [verifiedOTP, setVerifiedOTP] = useState(false);
   const [formData, setFormData] = useState({
@@ -23,17 +21,7 @@ export default function ToVerify({ openUp }) {
     phoneNo: "66998841",
   });
 
-  // setOpen(true);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    debugger
-    setOpen(false);
-    openUp = false;
-  };
+ 
   const sendOTP = () => {
     alert("OTP sent successfully");
     setOTP(true);
@@ -51,6 +39,7 @@ export default function ToVerify({ openUp }) {
       {openUp && (
         <Dialog
           open={openUp}
+          
           onClose={handleClose}
           PaperProps={{
             component: "form",
@@ -58,7 +47,6 @@ export default function ToVerify({ openUp }) {
               event.preventDefault();
               const formData = new FormData(event.currentTarget);
               const formJson = Object.fromEntries(formData.entries());
-              debugger;
               const email = formJson.email;
               console.log(email);
               handleClose();

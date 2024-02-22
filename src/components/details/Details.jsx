@@ -50,6 +50,11 @@ const Details = () => {
       setOpen(true);
     }
   };
+  const handleClose = () => {
+    
+      setOpen(false);
+    
+  };
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -347,7 +352,7 @@ const Details = () => {
           >
             Proceed
           </button>
-          {openUp && <Popup openUp='true' />}
+          {openUp && <Popup openUp='true' handleClose={handleClose} />}
         </div>
       </div>
     </>
